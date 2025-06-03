@@ -59,7 +59,7 @@ challenging the sufficiency of traditional head fusion.
 For token $i$ let $h_{i,m}$ be the $m$-th head vector.  
 Introduce **second-level attention**:
 
-$$ h_i = \sum_{m=1}^{M}\beta_{i,m}W_mh_{i,m} $$
+$$ \widetilde{h}_i = \sum_{m=1}^{M}\beta_{i,m}W_mh_{i,m} $$
 
 where the attention weights are:
 
