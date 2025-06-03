@@ -61,7 +61,7 @@ challenging the sufficiency of traditional head fusion.
 For token $i$ let $h_{i,m}$ be the $m$-th head vector.  
 Introduce **second-level attention**:
 
-$$\tilde{h}_i = \sum_{m=1}^{M}\beta_{i,m}\,W_m\,h_{i,m}$$
+$$\tilde{h}_i = \sum_{m=1}^{M}\beta_{i,m}W_mh_{i,m}$$
 
 where the attention weights are:
 
@@ -115,7 +115,7 @@ The connection between hierarchical attention and kernel methods becomes clear w
 examine how attention-over-heads operates. As shown by Cordonnier et al. (2020) and
 Shazeer et al. (2020), hierarchical fusion mechanisms realize:
 
-$$ K_{ij}=\sum_{m}\beta_{i,m}\,\beta_{j,m}\,K^{(m)}_{ij}, $$
+$$ K_{ij}=\sum_{m}\beta_{i,m}\beta_{j,m}K^{(m)}_{ij}, $$
 
 where the **combination weights depend on each token** – this is far richer than
 classical MKL where weights are global. This input-conditional weighting is precisely
@@ -140,14 +140,14 @@ capture **three-way or higher-order interactions** directly in the attention mat
 Instead of pairwise attention $A_{ij}$, consider **trilinear attention** that computes
 similarity across three tokens simultaneously:
 
-$$A_{ijk} = \text{softmax}\left(\sum_{a,b,c} T_{abc} \, q_i^{(a)} k_j^{(b)} k_k^{(c)}\right)$$
+$$A_{ijk} = \text{softmax}\left(\sum_{a,b,c} T_{abc} q_i^{(a)} k_j^{(b)} k_k^{(c)}\right)$$
 
 where $T \in \mathbb{R}^{d \times d \times d}$ is a learned tensor capturing 3-way
 interactions.
 
 The attended output becomes:
 
-$$\text{output}_i = \sum_{j,k} A_{ijk} \, V_{jk}$$
+$$\text{output}_i = \sum_{j,k} A_{ijk} V_{jk}$$
 
 where $V_{jk}$ represents some combination of value vectors from positions $j$ and $k$.
 
