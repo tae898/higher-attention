@@ -24,13 +24,13 @@ computational cost.
 For $M$ heads and $N$ tokens $X\!\in\!\mathbb{R}^{N\times d}$:
 
 $$
-\text{head}_m(X)\;=\;\operatorname{softmax}\!\Bigl(\tfrac{Q_mK_m^\top}{\sqrt{d_k}}\Bigr)V_m
+\text{head}_m(X)\;=\;\text{softmax}\!\Bigl(\tfrac{Q_mK_m^\top}{\sqrt{d_k}}\Bigr)V_m
 \;\;\in\mathbb{R}^{N\times d_v}. $$
 
 Heads are **concatenated** and projected,
 
 $$
-\text{MHA}(X)\;=\;\operatorname{Concat}\!\bigl[\text{head}_1,\dots,\text{head}_M\bigr]W^O,
+\text{MHA}(X)\;=\;\text{Concat}\!\bigl[\text{head}_1,\dots,\text{head}_M\bigr]W^O,
 $$
 
 yielding $N$ output tokens. Concatenation is _flat_: heads do not explicitly interact.
@@ -62,8 +62,8 @@ challenging the sufficiency of traditional head fusion.
 For token $i$ let $h_{i,m}$ be the $m$-th head vector.  
 Introduce **second-level attention**:
 
-$$ \tilde{h}_i \;=\;\sum_{m=1}^{M}\beta_{i,m}\,W_m\,h_{i,m},\quad
-\beta_{i,m}=\frac{\exp(q_i^\top k_m)}{\sum_{m'}\exp(q_i^\top k_{m'})}. $$
+$$\tilde{h}_i \;=\;\sum_{m=1}^{M}\beta_{i,m}\,W_m\,h_{i,m},\quad
+\beta_{i,m}=\frac{\exp(q_i^\top k_m)}{\sum_{m'}\exp(q_i^\top k_{m'})}.$$
 
 Now fusion is **input-dependent** and **hierarchical** (token→token then head→head).
 
