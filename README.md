@@ -1,5 +1,7 @@
 # **Hierarchical Attention, Kernel Perspectives, and Higher-Order Similarity in Transformers**
 
+Github does not render math properly. Clone this repo and visualize this in your IDE.
+
 ## Motivation
 
 Modern Transformers merge the outputs of multiple attention heads via _concatenation +
@@ -59,7 +61,7 @@ challenging the sufficiency of traditional head fusion.
 For token $i$ let $h_{i,m}$ be the $m$-th head vector.  
 Introduce **second-level attention**:
 
-$$ \widetilde{h}_i = \sum_{m=1}^{M}\beta_{i,m}W_mh_{i,m} $$
+$$ \tilde{h}_i = \sum_{m=1}^{M}\beta_{i,m}W_mh_{i,m} $$
 
 where the attention weights are:
 
