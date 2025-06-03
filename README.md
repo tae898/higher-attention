@@ -147,7 +147,9 @@ interactions.
 
 The attended output becomes:
 
-$$\text{output}_i = \sum_{j,k} A_{ijk} V_{jk}$$
+$$
+\text{output}_i = \sum_{j,k} A_{ijk} V_{jk}
+$$
 
 where $V_{jk}$ represents some combination of value vectors from positions $j$ and $k$.
 
