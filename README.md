@@ -21,16 +21,16 @@ computational cost.
 
 ### 1.1 Standard Multi-Head Attention
 
-For $M$ heads and $N$ tokens $X\!\in\!\mathbb{R}^{N\times d}$:
+For $M$ heads and $N$ tokens $X\in\mathbb{R}^{N\times d}$:
 
 $$
-\text{head}_m(X)\;=\;\text{softmax}\!\Bigl(\tfrac{Q_mK_m^\top}{\sqrt{d_k}}\Bigr)V_m
+\text{head}_m(X)\;=\;\text{softmax}\Bigl(\tfrac{Q_mK_m^\top}{\sqrt{d_k}}\Bigr)V_m
 \;\;\in\mathbb{R}^{N\times d_v}. $$
 
 Heads are **concatenated** and projected,
 
 $$
-\text{MHA}(X)\;=\;\text{Concat}\!\bigl[\text{head}_1,\dots,\text{head}_M\bigr]W^O,
+\text{MHA}(X)\;=\;\text{Concat}\bigl[\text{head}_1,\dots,\text{head}_M\bigr]W^O,
 $$
 
 yielding $N$ output tokens. Concatenation is _flat_: heads do not explicitly interact.
