@@ -62,8 +62,11 @@ challenging the sufficiency of traditional head fusion.
 For token $i$ let $h_{i,m}$ be the $m$-th head vector.  
 Introduce **second-level attention**:
 
-$$\tilde{h}_i \;=\;\sum_{m=1}^{M}\beta_{i,m}\,W_m\,h_{i,m},\quad
-\beta_{i,m}=\frac{\exp(q_i^\top k_m)}{\sum_{m'}\exp(q_i^\top k_{m'})}.$$
+$$\tilde{h}_i \;=\;\sum_{m=1}^{M}\beta_{i,m}\,W_m\,h_{i,m}$$
+
+where the attention weights are:
+
+$$\beta_{i,m}=\frac{\exp(q_i^\top k_m)}{\sum_{m'}\exp(q_i^\top k_{m'})}$$
 
 Now fusion is **input-dependent** and **hierarchical** (token→token then head→head).
 
