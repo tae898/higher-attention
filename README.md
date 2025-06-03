@@ -23,14 +23,12 @@ computational cost.
 
 For $M$ heads and $N$ tokens $X\in\mathbb{R}^{N\times d}$:
 
-$$
-\text{head}_m(X) = \text{softmax}\Bigl(\tfrac{Q_mK_m^\top}{\sqrt{d_k}}\Bigr)V_m \in\mathbb{R}^{N\times d_v}. $$
+$$ \text{head}_m(X) = \text{softmax}\Bigl(\tfrac{Q_mK_m^\top}{\sqrt{d_k}}\Bigr)V_m
+\in\mathbb{R}^{N\times d_v}. $$
 
 Heads are **concatenated** and projected,
 
-$$
-\text{MHA}(X) = \text{Concat}\bigl[\text{head}_1,\dots,\text{head}_M\bigr]W^O,
-$$
+$$ \text{MHA}(X) = \text{Concat}\bigl[\text{head}_1,\dots,\text{head}_M\bigr]W^O, $$
 
 yielding $N$ output tokens. Concatenation is _flat_: heads do not explicitly interact.
 
@@ -140,7 +138,8 @@ capture **three-way or higher-order interactions** directly in the attention mat
 Instead of pairwise attention $A_{ij}$, consider **trilinear attention** that computes
 similarity across three tokens simultaneously:
 
-$$A_{ijk} = \text{softmax}\left(\sum_{a,b,c} T_{abc} q_i^{(a)} k_j^{(b)} k_k^{(c)}\right)$$
+$$A_{ijk} = \text{softmax}\left(\sum_{a,b,c} T_{abc} q_i^{(a)} k_j^{(b)}
+k_k^{(c)}\right)$$
 
 where $T \in \mathbb{R}^{d \times d \times d}$ is a learned tensor capturing 3-way
 interactions.
