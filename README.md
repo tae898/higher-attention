@@ -24,13 +24,12 @@ computational cost.
 For $M$ heads and $N$ tokens $X\in\mathbb{R}^{N\times d}$:
 
 $$
-\text{head}_m(X)\;=\;\text{softmax}\Bigl(\tfrac{Q_mK_m^\top}{\sqrt{d_k}}\Bigr)V_m
-\;\;\in\mathbb{R}^{N\times d_v}. $$
+\text{head}_m(X) = \text{softmax}\Bigl(\tfrac{Q_mK_m^\top}{\sqrt{d_k}}\Bigr)V_m \in\mathbb{R}^{N\times d_v}. $$
 
 Heads are **concatenated** and projected,
 
 $$
-\text{MHA}(X)\;=\;\text{Concat}\bigl[\text{head}_1,\dots,\text{head}_M\bigr]W^O,
+\text{MHA}(X) = \text{Concat}\bigl[\text{head}_1,\dots,\text{head}_M\bigr]W^O,
 $$
 
 yielding $N$ output tokens. Concatenation is _flat_: heads do not explicitly interact.
@@ -62,7 +61,7 @@ challenging the sufficiency of traditional head fusion.
 For token $i$ let $h_{i,m}$ be the $m$-th head vector.  
 Introduce **second-level attention**:
 
-$$\tilde{h}_i \;=\;\sum_{m=1}^{M}\beta_{i,m}\,W_m\,h_{i,m}$$
+$$\tilde{h}_i = \sum_{m=1}^{M}\beta_{i,m}\,W_m\,h_{i,m}$$
 
 where the attention weights are:
 
@@ -106,7 +105,7 @@ cross-segment) yields both accuracy improvements and memory efficiency gains.
 
 ### 4.1 Multiple Kernel Learning (flat)
 
-$$ K(x,x')=\sum_{m=1}^{M}\beta_m K^{(m)}(x,x'),\quad \beta_m\ge0,\;\sum_{m}\beta_m=1. $$
+$$ K(x,x')=\sum_{m=1}^{M}\beta_m K^{(m)}(x,x'),\quad \beta_m\ge0,\sum_{m}\beta_m=1. $$
 
 Weights $\beta_m$ are **global** ⇒ same for all samples.
 
